@@ -5760,8 +5760,7 @@ const WORDS = [
 // import { WORDS } from "./words.js"
 
 const NUMBER_OF_GUESSES = 6
-let guessesRemaining =
-NUMBER_OF_GUESSES
+let guessesRemaining = NUMBER_OF_GUESSES
 let currentGuess = [];
 let nextLetter = 0;
 let rightGuessString = WORDS
@@ -5824,7 +5823,7 @@ function insertLetter(pressedKey) {
     nextLetter += 1
 }
 
-deleteLetter () {
+function deleteLetter () {
     let row = document.getElementsByClassName('letter-row')[6 - guessesRemaining]
     let box = row.children[nextLetter - 1]
     box.textContent = ''
@@ -5840,5 +5839,70 @@ function checkGuess() {
 
     for (const val of currentGuess) {
         guessString += val
+    }
+
+    if (guessString.length != 5) {
+        alert('Not enough letters!')
+        return
+    }
+
+    if (!WORDS.includes(guessString)) {
+        alert('word not in list!')
+        return
+    }
+
+    for (let i = 0; i < 5; i++) {
+        let letterColor = ''
+        let box = row.children[i]
+        let letter = currentGuess[i]
+
+        let letterPosition = rightGuess.indexOf(currentGuess[i])
+
+        if (letterPosition === -1) {
+            letterColor = 'grey'
+        } else {
+            if (currentGuess[i] === rightGuess[i]) {
+                letterColor = 'green'
+            } else {
+                letterColor = 'yellow'
+            }
+            rightGuess[letterPosition] = '#'
+        }
+
+        let delay = 250 * i
+        setTimeout(() => {
+            box.computedStyleMap.backgroundColor = letterColor
+            shadeKeyBoard(letter, letterColor)
+        }, delay)
+
+        if (guessString === rightGuessString) {
+            alert('You guessed right! Game over!')
+        } else {
+            guessesRemaining -= 1;
+            currentGuess = [];
+            nextLetter = 0;
+
+            if (guessesRemaining === 0) {
+                alert("You've run out of guesses! Game over!")
+                alert(`The right word was: ${rightGuessString}`)
+            }
+        }
+    }
+}
+
+function shadeKeyBoard(letter, color) {
+    for (const elem of document.getElementsByClassName('keyboard-button')) {
+        if (elem.textContent === letter) {
+            let oldColor = elem.style.backgroundColor
+            if (oldColor === 'green') {
+                return
+            }
+
+            if (oldColor === 'yellow' && color !== 'green') {
+                return
+            }
+
+            elem.style.backgroundColor = color
+        }
     }
 }
