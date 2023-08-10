@@ -1,28 +1,29 @@
-// const key = 'e26726f7919ac5946074f91f62b7d900'
-document.querySelector('button').addEventListener('click', getQuote)
+const text = document.querySelector('.quote')
+const author = document.querySelector('.author')
+const nextBtn = document.querySelector('.next')
+const tweetBtn = document.querySelector('.twitter-share-button')
 
-// fetch('https://favqs.com/api/qotd')    
-//     .then((res) => res.json())    
-//     .then((data) => {    
-//       console.log(data);    
-//     })    
-//     .catch((error) => {    
-//       console.error(error);    
-//     });    
-//   }
-
-  // document.querySelector('button').addEventListener('click', getFetch)
-
-function getQuote(){
-  // const choice = document.querySelector('input').value
-  const url = 'https://zenquotes.io/api/today'
+  function getQuote() {
+    const url = 'https://type.fit/api/quotes' 
 
   fetch(url)
-      .then(res => res.json()) // parse response as JSON
-      .then(data => {
-        console.log(data)
-      })
-      .catch(err => {
-          console.log(`error ${err}`)
-      });
+    .then(res => res.json()) // parse response as JSON
+    .then(quotes => {
+      console.log(quotes)
+      const num = Math.floor(Math.random()*quotes.length)
+      const item = quotes[num]
+      const quote = item.text
+      const authorName = item.author
+      text.innerText = quote
+      author.innerText = authorName
+      tweetBtn.href = `https://twitter.com/intent/tweet?text=${quote} - ${authorName}`
+      console.log(quote)
+    })
+    .catch(err => {
+        console.log(`error ${err}`)
+    });
 }
+
+nextBtn.addEventListener('click', getQuote)
+
+getQuote()

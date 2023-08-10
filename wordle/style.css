@@ -1,5 +1,16 @@
+.main {
+  border: 2px solid black;
+  /* padding: 20px; */
+  /* width: 28%; */
+  margin-left: 20%;
+  margin-right: 20%;
+  background: linear-gradient(#fafcfd, rgb(241, 235, 253) );
+  border-radius: 1%;
+}
+
 h1 {
     text-align: center;
+    font-size: 2rem;
 }
 
 #game-board {
@@ -20,6 +31,7 @@ h1 {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
+    background-color: white;
   }
   
   .filled-box {
@@ -37,7 +49,7 @@ h1 {
     align-items: center;
   }
   
-  #keyboard-cont div {
+  #keyboard-cont section {
     display: flex;
   }
   
@@ -45,7 +57,7 @@ h1 {
     margin: 0.5rem 0;
   }
   
-  .keyboard-button, .reset {
+  .keyboard-button, #restart {
     font-size: 1rem;
     font-weight: 700;
     padding: 0.5rem;
@@ -54,8 +66,9 @@ h1 {
     text-transform: uppercase;
   }
 
-  .reset {
-    background-color: rgb(192, 189, 189);
-    margin-top: 20px;
+  #restart {
+    /* background-color: rgb(192, 189, 189); */
+    margin-top: 2%;
+    margin-right: 80%;
     border-radius: 5px;
   }

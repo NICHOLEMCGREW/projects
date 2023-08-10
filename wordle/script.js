@@ -5759,6 +5759,9 @@ const WORDS = [
   ]
 // import { WORDS } from "./words.js"
 
+
+
+
 const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
@@ -5770,11 +5773,11 @@ function initBoard() {
     let board = document.getElementById("game-board");
 
     for (let i = 0; i < NUMBER_OF_GUESSES; i++) {
-        let row = document.createElement("div")
+        let row = document.createElement("section")
         row.className = "letter-row"
         
         for (let j = 0; j < 5; j++) {
-            let box = document.createElement("div")
+            let box = document.createElement("section")
             box.className = "letter-box"
             row.appendChild(box)
         }
@@ -5959,9 +5962,17 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
 });
 
+// restart game
+// pull in cells from DOM
+// const cellElements = document.querySelectorAll('.keyboard-button')
+//pull in result text from DOM
+// const resultElement = document.getElementById('result');
 
-document.querySelector('.reset').addEventListener('click', newGame) 
+//add event listener to restart button
+const restartButton = document.getElementById('restart')
 
-function newGame() {
-    
+restartButton.addEventListener('click', restart)
+
+function restart() {
+    window.location.reload();
 }
