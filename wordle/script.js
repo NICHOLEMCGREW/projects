@@ -5976,3 +5976,38 @@ restartButton.addEventListener('click', restart)
 function restart() {
     window.location.reload();
 }
+
+
+// // dictionary fetch api function
+// function fetchApi(word) {
+//     // wrapper.classList.remove('active');
+//     infoText.style.color = '#000'; 
+//     infoText.innerHTML = `Searching the meaning of <span>"${word}"</span>`;
+//     let url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+//     // fetching api response and returning it with parsing into js obj and in another then 
+//     // method calling data function with passing api response and searched word as an argument
+//     fetch(url).then(res => res.json()).then(result => data(result, word));
+// }
+
+document.querySelector('.search-definition').addEventListener('click', getDefinition)
+
+function getDefinition(word){
+  // const choice = document.querySelector('input').value
+  // const url = 'https://pokeapi.co/api/v2/pokemon/'+choice
+
+
+  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+
+  fetch(url)
+      .then(res => res.json()) // parse response as JSON
+      .then(data => {
+        console.log(data)
+        console.log(rightGuessString)
+      })
+      .catch(err => {
+          console.log(`error ${err}`)
+      });
+}
+
+// let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+
