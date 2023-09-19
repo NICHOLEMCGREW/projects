@@ -31,5 +31,36 @@
             </ul>
         </div>
     </nav>
+    <!-- Header with image  -->
+    <header class="bg-img d-flex flex-column justify-content-between" id="home">
+        <div></div>
+        <div class="d-flex flex-column text-center">
+            <span class="display-1">REALLY<br>GOOD PIZZA</span>
+            <p><a href="#menu" class="btn btn-lg btn-dark hover-btn fs-2">Let me see the menu</a></p>
+        </div>
+        <div class="d-flex justify-content-start">
+            <span class="bg-dark text-white p-3 h2">
+                Open from 10am to 11pm - Call 555-555-5555
+            </span>
+        </div>
+    </header>
+
+    <!-- Menu container  -->
+    <div class="container-fluid bg-black text-white py-5 display-4" id="menu">
+        <div class="container">
+            <h1 class="text-center display-2 mb-5">The Menu</h1>
+                <div class="text-center border border-dark">
+                    <div class="d-flex">
+                        <a href="" onclick="openMenu(event, 'Pizza');" class="col-4 tablink p-3 hover-red">Pizza
+                        </a>
+                        <a href="" onclick="openMenu(event, 'Pasta');" class="col-4 tablink p-3 hover-red">Pasta
+                        </a>
+                        <a href="" onclick="openMenu(event, 'Starter');" class="col-4 tablink p-3 hover-red">Starter
+                        </a>
+                    </div>
+                </div>
+                
+        </div>
+    </div>
 </body>
 </html>

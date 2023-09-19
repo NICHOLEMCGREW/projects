@@ -24,3 +24,22 @@ body, h1, h2, h3, h4, h5, h6
     background-color: white;
     color: black;
 }
+
+/* Hide on small screens  */
+ @media (max-width: 992px) {
+    #myNavbar {
+        display: none;
+    }
+ }
+
+ /* Custom styles for header  */
+.bg-img {
+    background-image: url('assets/istockphoto-1334114165-612x612.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.btn {
+    min-width: 250px;
+}
