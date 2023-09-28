@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+#slider {
+    height: 500px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 1600px;
+    margin: auto;
+}
+
+.subcontainer {
+    width: 85%;
+    margin: auto;
+}
+
+.slide-img {
+    width: 100%;
+    height: 275px;
+    border-radius: 5px;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.slide-img:hover{
+    box-shadow: 0 0 0 200px rgba(0,0,0,0.9) inset;
+}
+
+.slide-img a{
+    opacity: 0;
+    text-decoration: none;
+    transform: scale(0);
+    transition: 0.8s;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.slide-img:hover a {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.img-1 {
+    background-image: url(/tinySlider/imgs/braden-jarvis-prSogOoFmkw-unsplash.jpg);
+}
+
+.img-2 {
+    background-image: url(/tinySlider/imgs/janis-rozenfelds-gCG5CyGf55g-unsplash.jpg);
+}
+.img-3 {
+    background-image: url(/tinySlider/imgs/aurora-kreativ-UN4cs4zNCYo-unsplash.jpg);
+}
+.img-4 {
+    background-image: url(/tinySlider/imgs/marcelo-villalobos-qH635B_agHg-unsplash.jpg);
+}
+.img-5 {
+    background-image: url(/tinySlider/imgs/agustin-diaz-gargiulo-7F65HDP0-E0-unsplash.jpg);
+}
+
+@media(max-width:1600px) {
+    .container {
+        width: 100%;
+    }
+}
